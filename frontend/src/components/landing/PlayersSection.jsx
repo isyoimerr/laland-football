@@ -6,7 +6,6 @@ const PLAYERS = [
     country: 'Portugal',
     number: '7',
     color: '#ef4444',
-    flag: '🇵🇹',
     pos: 'Delantero',
     stats: { goals: 900, assists: 240, titles: 35 },
   },
@@ -15,7 +14,6 @@ const PLAYERS = [
     country: 'Argentina',
     number: '10',
     color: '#3b82f6',
-    flag: '🇦🇷',
     pos: 'Delantero',
     stats: { goals: 843, assists: 365, titles: 44 },
   },
@@ -24,7 +22,6 @@ const PLAYERS = [
     country: 'Francia',
     number: '9',
     color: '#00d4a1',
-    flag: '🇫🇷',
     pos: 'Delantero',
     stats: { goals: 384, assists: 188, titles: 18 },
   },
@@ -33,7 +30,6 @@ const PLAYERS = [
     country: 'Noruega',
     number: '9',
     color: '#a855f7',
-    flag: '🇳🇴',
     pos: 'Delantero',
     stats: { goals: 311, assists: 62, titles: 9 },
   },
@@ -73,10 +69,9 @@ function PlayerCard({ player }) {
 
       {/* Contenido */}
       <div className="p-5 relative z-10">
-        {/* País + flag */}
+        {/* País + número */}
         <div className="flex items-center gap-1.5 mb-3">
-          <span className="text-base">{player.flag}</span>
-          <span className="text-2xs text-text-muted">{player.country}</span>
+          <span className="text-2xs text-text-muted font-medium">{player.country}</span>
           <span className="ml-auto badge text-2xs border" style={{ color: player.color, background: `${player.color}12`, borderColor: `${player.color}25` }}>
             #{player.number}
           </span>
@@ -137,7 +132,7 @@ export default function PlayersSection() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
           variants={CONTAINER}
           initial="hidden"
           whileInView="visible"

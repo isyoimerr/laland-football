@@ -20,7 +20,7 @@ export default {
         text: {
           primary: '#f9fafb',
           secondary: '#9ca3af',
-          muted: '#4b5563',
+          muted: '#6b7280',
         },
         border: {
           DEFAULT: '#1f2937',
@@ -31,9 +31,9 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        '2xs': ['0.75rem', { lineHeight: '1rem' }],
-        xs: ['0.875rem', { lineHeight: '1.25rem' }],
-        sm: ['1rem', { lineHeight: '1.5rem' }],
+        '2xs': ['0.8125rem', { lineHeight: '1.1875rem' }],
+        xs: ['0.875rem', { lineHeight: '1.3rem' }],
+        sm: ['1rem', { lineHeight: '1.55rem' }],
         base: ['1.125rem', { lineHeight: '1.75rem' }],
         lg: ['1.5rem', { lineHeight: '2rem' }],
         xl: ['2rem', { lineHeight: '2.5rem' }],

@@ -20,12 +20,33 @@ const STATUS_COLOR = {
   cancelled: 'text-text-muted',
 }
 
-const EVENT_ICON = {
-  goal: '⚽',
-  yellow_card: '🟨',
-  red_card: '🟥',
-  substitution: '🔄',
-  injury: '🚑',
+function EventIcon({ type }) {
+  switch (type) {
+    case 'goal':
+      return (
+        <span className="inline-flex w-5 h-5 rounded-full border-2 border-accent-green/60 bg-accent-green/10 items-center justify-center flex-shrink-0">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00d4a1" strokeWidth="2.5" strokeLinecap="round"><circle cx="12" cy="12" r="4" fill="#00d4a1" stroke="none"/></svg>
+        </span>
+      )
+    case 'yellow_card':
+      return <span className="inline-block w-3.5 h-4.5 rounded-sm flex-shrink-0" style={{ background: '#f59e0b', minWidth: '0.875rem', minHeight: '1.125rem', borderRadius: '2px' }} />
+    case 'red_card':
+      return <span className="inline-block w-3.5 h-4.5 rounded-sm flex-shrink-0" style={{ background: '#ef4444', minWidth: '0.875rem', minHeight: '1.125rem', borderRadius: '2px' }} />
+    case 'substitution':
+      return (
+        <span className="inline-flex w-5 h-5 items-center justify-center flex-shrink-0 text-accent-blue">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 16V4m0 0L3 8m4-4 4 4M17 8v12m0 0 4-4m-4 4-4-4"/></svg>
+        </span>
+      )
+    case 'injury':
+      return (
+        <span className="inline-flex w-5 h-5 rounded-full bg-accent-red/10 items-center justify-center flex-shrink-0 text-accent-red">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </span>
+      )
+    default:
+      return <span className="inline-block w-4 h-4 rounded-full bg-bg-tertiary flex-shrink-0" />
+  }
 }
 
 const EVENT_LABEL = {
@@ -42,19 +63,20 @@ function Skeleton({ className = '' }) {
 
 function EventRow({ event, homeTeamId }) {
   const isHome = event.team_id === homeTeamId
+  const evType = event.eventType ?? event.type
   return (
-    <div className={`flex items-center gap-3 py-2 px-4 ${isHome ? 'flex-row' : 'flex-row-reverse'}`}>
-      <span className="text-base">{EVENT_ICON[event.type]}</span>
-      <div className={`flex flex-col ${isHome ? 'items-start' : 'items-end'}`}>
-        <span className="text-xs font-semibold text-text-primary">
+    <div className={`flex items-center gap-3 py-2.5 px-4 ${isHome ? 'flex-row' : 'flex-row-reverse'}`}>
+      <EventIcon type={evType} />
+      <div className={`flex flex-col ${isHome ? 'items-start' : 'items-end'} flex-1 min-w-0`}>
+        <span className="text-xs font-semibold text-text-primary truncate">
           {event.Player?.name ?? 'Jugador'}
         </span>
         {event.description && (
-          <span className="text-2xs text-text-muted">{event.description}</span>
+          <span className="text-2xs text-text-muted truncate">{event.description}</span>
         )}
-        <span className="text-2xs text-text-muted">{EVENT_LABEL[event.type]}</span>
+        <span className="text-2xs text-text-muted">{EVENT_LABEL[evType]}</span>
       </div>
-      <div className="mx-auto flex items-center justify-center w-10 h-6 rounded bg-bg-tertiary border border-border">
+      <div className="flex-shrink-0 flex items-center justify-center w-10 h-6 rounded bg-bg-tertiary border border-border">
         <span className="text-2xs font-bold text-accent-green">{event.minute}'</span>
       </div>
     </div>
@@ -99,7 +121,7 @@ export default function MatchDetail() {
         setMatch(matchData)
         setVideos(videoRes.data.data.videos || [])
         if (videoRes.data.data.videos?.length > 0) { setSelectedVideo(videoRes.data.data.videos[0]) }
-        if (matchData?.MatchEvents?.some(e => e.type === 'goal')) {
+        if (matchData?.MatchEvents?.some(e => (e.eventType ?? e.type) === 'goal')) {
           setTimeout(() => playGoal(), 500)
         }
         if (matchData?.status === 'finished') {
@@ -118,12 +140,13 @@ export default function MatchDetail() {
 
   const homeEvents = match?.MatchEvents?.filter(e => e.team_id === match.home_team_id) ?? []
   const awayEvents = match?.MatchEvents?.filter(e => e.team_id === match.away_team_id) ?? []
-  const homeGoals = homeEvents.filter(e => e.type === 'goal').length
-  const awayGoals = awayEvents.filter(e => e.type === 'goal').length
-  const homeYellow = homeEvents.filter(e => e.type === 'yellow_card').length
-  const awayYellow = awayEvents.filter(e => e.type === 'yellow_card').length
-  const homeRed = homeEvents.filter(e => e.type === 'red_card').length
-  const awayRed = awayEvents.filter(e => e.type === 'red_card').length
+  const evType = e => e.eventType ?? e.type
+  const homeGoals = homeEvents.filter(e => evType(e) === 'goal').length
+  const awayGoals = awayEvents.filter(e => evType(e) === 'goal').length
+  const homeYellow = homeEvents.filter(e => evType(e) === 'yellow_card').length
+  const awayYellow = awayEvents.filter(e => evType(e) === 'yellow_card').length
+  const homeRed = homeEvents.filter(e => evType(e) === 'red_card').length
+  const awayRed = awayEvents.filter(e => evType(e) === 'red_card').length
   const allEvents = [...(match?.MatchEvents ?? [])].sort((a, b) => a.minute - b.minute)
 
   return (
@@ -266,7 +289,9 @@ export default function MatchDetail() {
                       {vp.Player?.photo_path ? (
                         <img src={vp.Player.photo_path} alt="" className="w-4 h-4 rounded-full object-cover" />
                       ) : (
-                        <span className="w-4 h-4 rounded-full bg-accent-green/20 flex items-center justify-center text-2xs">👤</span>
+                        <span className="w-4 h-4 rounded-full bg-accent-green/20 flex items-center justify-center">
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#00d4a1" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-1a6 6 0 0 1 12 0v1"/></svg>
+                        </span>
                       )}
                       {vp.Player?.name ?? `#${vp.player_id}`}
                     </Link>

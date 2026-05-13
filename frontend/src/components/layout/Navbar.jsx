@@ -51,8 +51,8 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Search */}
-        <div className="hidden lg:block flex-1 mx-6 max-w-sm">
+        {/* Search desktop */}
+        <div className="hidden md:block flex-1 mx-6 max-w-sm">
           <SearchBar />
         </div>
 
@@ -136,6 +136,9 @@ export default function Navbar() {
                 {label}
               </NavLink>
             ))}
+            <div className="pt-2 pb-1">
+              <SearchBar onSelect={() => setMenuOpen(false)} />
+            </div>
             <div className="divider my-1" />
             {isAuthenticated ? (
               <>

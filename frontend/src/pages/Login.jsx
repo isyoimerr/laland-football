@@ -4,10 +4,43 @@ import { useState } from 'react'
 import useAuthStore from '@store/authStore'
 
 const HIGHLIGHTS = [
-  { icon: '⚡', text: 'Live scores en tiempo real vía WebSocket' },
-  { icon: '📊', text: 'Estadísticas avanzadas xG, posesión y mapa de tiros' },
-  { icon: '🤖', text: 'Predicciones con inteligencia artificial' },
-  { icon: '🏆', text: 'Rankings y goleadores actualizados al minuto' },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
+        <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" opacity="0.9"/>
+        <path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4"/>
+      </svg>
+    ),
+    text: 'Live scores en tiempo real vía WebSocket',
+  },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
+        <path d="M18 20V10M12 20V4M6 20v-6"/>
+      </svg>
+    ),
+    text: 'Estadísticas avanzadas xG, posesión y mapa de tiros',
+  },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="11" width="18" height="10" rx="2"/>
+        <path d="M9 11V7a3 3 0 0 1 6 0v4"/>
+        <circle cx="12" cy="16" r="1.5" fill="currentColor" stroke="none"/>
+      </svg>
+    ),
+    text: 'Predicciones con inteligencia artificial',
+  },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 21h8M12 17v4"/>
+        <path d="M7 4H4a1 1 0 0 0-1 1v2c0 3.3 2.7 6 6 6h6c3.3 0 6-2.7 6-6V5a1 1 0 0 0-1-1h-3"/>
+        <path d="M7 4V2h10v2"/>
+      </svg>
+    ),
+    text: 'Rankings y goleadores actualizados al minuto',
+  },
 ]
 
 const DEMO_USER = {
@@ -147,7 +180,9 @@ export default function Login() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
                 >
-                  <span className="text-lg">{item.icon}</span>
+                  <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-accent-green/10 text-accent-green flex items-center justify-center">
+                    {item.icon}
+                  </span>
                   <span className="text-text-secondary text-xs">{item.text}</span>
                 </motion.li>
               ))}

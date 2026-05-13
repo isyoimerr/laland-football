@@ -87,8 +87,13 @@ export default function PlayerProfile() {
               </span>
             </p>
             {team && (
-              <Link to={`/equipos/${team.id}`} className="text-accent-teal hover:text-accent-teal-light text-sm mt-3 transition block">
-                🏆 {team.name}
+              <Link to={`/equipos/${team.id}`} className="inline-flex items-center gap-1.5 text-accent-green hover:text-accent-green-dark text-xs mt-3 transition font-medium">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M8 21h8M12 17v4"/>
+                  <path d="M7 4H4a1 1 0 0 0-1 1v2c0 3.3 2.7 6 6 6h6c3.3 0 6-2.7 6-6V5a1 1 0 0 0-1-1h-3"/>
+                  <path d="M7 4V2h10v2"/>
+                </svg>
+                {team.name}
               </Link>
             )}
           </div>

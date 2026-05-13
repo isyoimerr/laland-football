@@ -21,7 +21,7 @@
   /* Colores de texto */
   --color-text-primary: #f9fafb;
   --color-text-secondary: #9ca3af;
-  --color-text-muted: #4b5563;
+  --color-text-muted: #6b7280;
 
   /* Bordes */
   --color-border: #1f2937;
@@ -31,7 +31,7 @@
   --font-sans: 'Inter', system-ui, sans-serif;
 
   /* Escala de tamaños */
-  --text-2xs: 0.75rem;
+  --text-2xs: 0.8125rem;
   --text-xs: 0.875rem;
   --text-sm: 1rem;
   --text-base: 1.125rem;
@@ -87,7 +87,9 @@
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
     min-height: 100dvh;
-    line-height: 1.6;
+    line-height: 1.65;
+    font-size: 0.9375rem;
+    -webkit-text-size-adjust: 100%;
   }
 
   #root {
@@ -152,7 +154,7 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg
            bg-accent-green text-bg-primary font-semibold text-xs
            transition-all duration-200
            hover:bg-accent-green-dark active:scale-95
@@ -160,21 +162,21 @@
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg
            bg-bg-tertiary text-text-primary font-semibold text-xs border border-border
            transition-all duration-200
            hover:border-border-light hover:bg-bg-tertiary active:scale-95;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg
            text-text-secondary font-medium text-xs
            transition-all duration-200
            hover:text-text-primary hover:bg-bg-tertiary active:scale-95;
   }
 
   .input-base {
-    @apply w-full bg-bg-tertiary border border-border rounded-lg px-4 py-2
+    @apply w-full bg-bg-tertiary border border-border rounded-lg px-4 py-2.5
            text-text-primary text-xs placeholder-text-muted
            transition-colors duration-200
            focus:outline-none focus:border-accent-green;

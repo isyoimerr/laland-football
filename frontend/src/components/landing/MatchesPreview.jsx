@@ -44,7 +44,7 @@ function StatBar({ label, homeVal, awayVal, color }) {
   const awayWidth = `${awayVal}%`
   return (
     <div className="space-y-1">
-      <div className="flex justify-between text-xs text-text-muted" style={{ fontSize: '10px' }}>
+      <div className="flex justify-between text-2xs text-text-muted">
         <span>{homeVal}%</span>
         <span className="text-text-muted">{label}</span>
         <span>{awayVal}%</span>
@@ -149,7 +149,7 @@ function MatchCard({ match, delay }) {
                 vs
               </span>
             )}
-            <p className="text-text-muted mt-1 text-center" style={{ fontSize: '10px' }}>{match.stadium}</p>
+            <p className="text-2xs text-text-muted mt-1 text-center">{match.stadium}</p>
           </div>
 
           <TeamBadge team={match.away} />

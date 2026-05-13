@@ -11,11 +11,37 @@ const LIVE_MATCHES = [
   { home: 'Bayern', away: 'Dortmund', h: 3, a: 0, min: "88'", comp: 'Bundesliga', color: '#f59e0b' },
 ]
 
+const BADGE_ICONS = {
+  live: (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+      <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/>
+      <path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4"/>
+    </svg>
+  ),
+  stats: (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+      <path d="M18 20V10M12 20V4M6 20v-6"/>
+    </svg>
+  ),
+  ai: (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1 0-6h1V6a4 4 0 0 1 4-4z"/>
+    </svg>
+  ),
+  trophy: (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 21h8M12 17v4"/>
+      <path d="M7 4H4a1 1 0 0 0-1 1v2c0 3.3 2.7 6 6 6h6c3.3 0 6-2.7 6-6V5a1 1 0 0 0-1-1h-3"/>
+      <path d="M7 4V2h10v2"/>
+    </svg>
+  ),
+}
+
 const BADGES = [
-  { icon: '⚡', label: 'Live en tiempo real' },
-  { icon: '📊', label: 'Estadísticas xG' },
-  { icon: '🤖', label: 'Predicciones IA' },
-  { icon: '🏆', label: '5 ligas top' },
+  { icon: BADGE_ICONS.live, label: 'Live en tiempo real' },
+  { icon: BADGE_ICONS.stats, label: 'Estadísticas xG' },
+  { icon: BADGE_ICONS.ai, label: 'Predicciones IA' },
+  { icon: BADGE_ICONS.trophy, label: '5 ligas top' },
 ]
 
 const SLIDES = [

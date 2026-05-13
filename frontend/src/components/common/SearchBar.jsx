@@ -11,12 +11,22 @@ const GROUP_LABELS = {
   coach: 'Entrenadores',
   stadium: 'Estadios',
 }
-const GROUP_ICONS = {
-  team: '🏆',
-  league: '📊',
-  player: '👤',
-  coach: '🧑‍🏫',
-  stadium: '🏟️',
+function TypeIcon({ type }) {
+  const base = { width: 14, height: 14, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.75, strokeLinecap: 'round', strokeLinejoin: 'round' }
+  switch (type) {
+    case 'team':
+      return <svg {...base}><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    case 'league':
+      return <svg {...base}><path d="M8 21h8M12 17v4"/><path d="M7 4H4a1 1 0 0 0-1 1v2c0 3.3 2.7 6 6 6h6c3.3 0 6-2.7 6-6V5a1 1 0 0 0-1-1h-3"/><path d="M7 4V2h10v2"/></svg>
+    case 'player':
+      return <svg {...base}><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+    case 'coach':
+      return <svg {...base}><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/><path d="M19 16l2 2-2 2"/></svg>
+    case 'stadium':
+      return <svg {...base}><rect x="2" y="10" width="20" height="11" rx="2"/><path d="M12 10V4"/><path d="M2 14h20"/><path d="M8 10V7M16 10V7"/></svg>
+    default:
+      return null
+  }
 }
 
 export default function SearchBar({ className = '', onSelect }) {
@@ -192,8 +202,9 @@ export default function SearchBar({ className = '', onSelect }) {
                 if (items.length === 0) return null
                 return (
                   <div key={group}>
-                    <div className="px-4 py-1.5 text-2xs font-semibold text-text-muted uppercase tracking-wider">
-                      {GROUP_ICONS[group]} {GROUP_LABELS[group]}
+                    <div className="px-4 py-1.5 text-2xs font-semibold text-text-muted uppercase tracking-wider flex items-center gap-1.5">
+                      <TypeIcon type={group} />
+                      {GROUP_LABELS[group]}
                     </div>
                     {items.map((item, i) => {
                       const flatIdx = flatResults().indexOf({ ...item, _group: group })
@@ -208,7 +219,9 @@ export default function SearchBar({ className = '', onSelect }) {
                             selectedIndex === flatIdx ? 'bg-accent-green/10 text-accent-green' : 'hover:bg-bg-tertiary text-text-primary'
                           }`}
                         >
-                          <span className="text-base">{GROUP_ICONS[item.type]}</span>
+                          <span className="flex-shrink-0 w-6 h-6 rounded bg-bg-tertiary flex items-center justify-center text-text-muted">
+                            <TypeIcon type={item.type} />
+                          </span>
                           <div className="flex-1 min-w-0">
                             <div className="font-semibold truncate">{item.name}</div>
                             {item.subtitle && (
