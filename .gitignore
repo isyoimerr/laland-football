@@ -41,3 +41,10 @@ coverage/
 # ─── Misc ─────────────────────────────────────────────────────────────────────
 *.local
 .cache/
+
+# ─── Assets locales (demasiado grandes para git — usar almacenamiento externo) ──
+LALAND_FOOTBALL_ASSETS/
+
+# ─── Claude Code (memoria y configuración local) ──────────────────────────────
+.claude/
+MEMORY.md
