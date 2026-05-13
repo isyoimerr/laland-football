@@ -1,56 +1,92 @@
 # LALAND Football
 
-Plataforma web de fútbol en tiempo real — estadísticas avanzadas, perfiles completos, live scores y panel administrativo.
+**Plataforma web de fútbol en tiempo real** — live scores, estadísticas avanzadas, perfiles de equipos y jugadores, tabla de posiciones y panel administrativo completo.
 
-## Stack
+Construido con vibe coding: idea, iteración rápida y entrega continua.
+
+---
+
+## Vista general
+
+LALAND Football es una plataforma de nivel profesional inspirada en Sofascore y FotMob. Permite seguir partidos en vivo, consultar estadísticas detalladas, gestionar competiciones y administrar todos los datos desde un panel integrado.
+
+---
+
+## Stack tecnológico
 
 | Capa | Tecnología |
 |---|---|
 | Frontend | React 18 + Vite, React Router 6, Zustand, TailwindCSS, Framer Motion |
 | Gráficos | Recharts + Chart.js |
 | Backend | Node.js + Express |
-| Base de datos | MySQL (XAMPP) |
+| Base de datos | MySQL |
 | ORM | Sequelize |
 | Tiempo real | Socket.io |
-| Auth | JWT + bcrypt |
+| Autenticación | JWT + bcrypt |
+| Validación | express-validator |
 
 ---
 
-## Requisitos previos
+## Funcionalidades
 
-- [Node.js](https://nodejs.org/) ≥ 18
-- [XAMPP](https://www.apachefriends.org/) con MySQL activo
-- npm ≥ 9
+**Plataforma pública**
+- Live scores con marcador en tiempo real via WebSocket
+- Perfiles completos de equipos, jugadores, técnicos y estadios
+- Tabla de posiciones calculada automáticamente por competición
+- Calendario de próximos partidos y resultados históricos
+- Búsqueda global con navegación por teclado
+- Estadísticas por jugador: goles, asistencias, tarjetas, minutos jugados
+
+**Panel administrativo**
+- Dashboard con métricas generales
+- Gestión de equipos, jugadores, partidos, ligas, estadios y videos
+- Registro de eventos en vivo: goles, tarjetas, sustituciones, lesiones
+- Control de roles: user, admin, super_admin
+- Subida de imágenes
 
 ---
 
-## Instalación en < 10 minutos
+## Requisitos
 
-### 1 — Clonar el repositorio
+- Node.js >= 18
+- MySQL (XAMPP recomendado para desarrollo local)
+- npm >= 9
+
+---
+
+## Instalación
+
+### 1. Clonar el repositorio
 
 ```bash
-git clone <url-del-repo> laland-football
+git clone https://github.com/yoimer777/laland-football.git
 cd laland-football
 ```
 
-### 2 — Crear la base de datos en XAMPP
+### 2. Crear la base de datos
 
-1. Abrir XAMPP y arrancar el servicio **MySQL**.
-2. Ir a `http://localhost/phpmyadmin`.
-3. Crear una base de datos llamada `laland_football` (cotejamiento `utf8mb4_unicode_ci`).
+Iniciar MySQL y ejecutar:
 
-### 3 — Configurar variables de entorno del backend
+```sql
+CREATE DATABASE laland_football CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+Luego importar el schema:
+
+```bash
+mysql -u root laland_football < backend/laland_football_schema.sql
+```
+
+### 3. Configurar variables de entorno
 
 ```bash
 cd backend
 cp .env.example .env
 ```
 
-Editar `.env` y completar los valores según tu entorno (por defecto funciona con XAMPP sin contraseña).
+Editar `.env` con los datos de tu entorno (funciona por defecto con XAMPP sin contraseña).
 
-### 4 — Instalar dependencias
-
-Desde la raíz del proyecto:
+### 4. Instalar dependencias
 
 ```bash
 # Backend
@@ -60,26 +96,64 @@ cd backend && npm install
 cd ../frontend && npm install
 ```
 
-### 5 — Levantar los servidores
+### 5. Cargar datos de prueba
+
+```bash
+cd backend
+npm run db:seed
+```
+
+### 6. Iniciar los servidores
 
 **Terminal 1 — Backend:**
 ```bash
 cd backend
 npm run dev
-# → API corriendo en http://localhost:3001
+# Servidor en http://localhost:3001
 ```
 
 **Terminal 2 — Frontend:**
 ```bash
 cd frontend
 npm run dev
-# → App corriendo en http://localhost:5173
+# App en http://localhost:5173
 ```
 
-### 6 — Verificar
+---
 
-- Abrir `http://localhost:5173` → debe ver la interfaz de LALAND Football.
-- Abrir `http://localhost:3001/health` → debe responder `{ "status": "ok" }`.
+## Usuarios de prueba
+
+| Email | Contrasena | Rol |
+|---|---|---|
+| user@test.com | password123 | user |
+| admin@test.com | password123 | admin |
+| super_admin@test.com | password123 | super_admin |
+
+---
+
+## Endpoints principales
+
+```
+GET    /api/teams                       Listar equipos
+GET    /api/teams/:id                   Detalle equipo
+POST   /api/teams                       Crear equipo (admin)
+PUT    /api/teams/:id                   Editar equipo (admin)
+DELETE /api/teams/:id                   Eliminar equipo (super_admin)
+
+GET    /api/players?team_id=&position=  Listar/filtrar jugadores
+GET    /api/players/:id/stats           Estadisticas del jugador
+
+GET    /api/matches?status=&league_id=  Listar/filtrar partidos
+POST   /api/matches/:id/events          Registrar evento en vivo (admin)
+
+GET    /api/leagues/:id/standings       Tabla de posiciones
+
+GET    /api/coaches                     Listar tecnicos
+GET    /api/stadiums                    Listar estadios
+
+POST   /api/auth/login                  Iniciar sesion
+POST   /api/auth/register               Registrar usuario
+```
 
 ---
 
@@ -87,112 +161,83 @@ npm run dev
 
 ```
 laland-football/
-├── frontend/              # React + Vite (puerto 5173)
-│   ├── src/
-│   │   ├── components/    # Componentes reutilizables
-│   │   │   ├── layout/    # Navbar, Footer, MainLayout
-│   │   │   └── ui/        # Button, Card, Badge, Skeleton...
-│   │   ├── pages/         # Vistas/rutas
-│   │   ├── features/      # Lógica por módulo
-│   │   ├── hooks/         # Custom hooks
-│   │   ├── services/      # Cliente axios + socket
-│   │   ├── store/         # Estado global (Zustand)
-│   │   ├── styles/        # Tokens CSS + design system
-│   │   └── utils/         # Helpers
-│   ├── vite.config.js
-│   ├── tailwind.config.js
-│   └── package.json
-├── backend/               # Node + Express (puerto 3001)
-│   ├── src/
-│   │   ├── controllers/   # Lógica de cada endpoint
-│   │   ├── routes/        # Definición de rutas
-│   │   ├── services/      # Lógica de negocio
-│   │   ├── models/        # Modelos Sequelize
-│   │   ├── middlewares/   # auth, errorHandler, rateLimit
-│   │   ├── sockets/       # Handlers Socket.io
-│   │   ├── validators/    # Validaciones express-validator
-│   │   ├── utils/         # Helpers
-│   │   └── config/        # DB, env, variables
-│   ├── .env.example
-│   └── package.json
-├── database/
-│   ├── migrations/        # Migraciones Sequelize (Fase 1)
-│   ├── seeders/           # Datos de prueba (Fase 1)
-│   └── schema.md          # Documentación del esquema
-├── docs/
-│   ├── conventions.md     # Convenciones del proyecto
-│   └── api/               # Documentación de endpoints (Fase 3)
-└── README.md
+├── frontend/                  React + Vite (puerto 5173)
+│   └── src/
+│       ├── components/        Componentes reutilizables
+│       │   ├── admin/         Panel administrativo
+│       │   ├── landing/       Secciones de la pagina principal
+│       │   ├── layout/        Navbar, Footer, MainLayout
+│       │   └── common/        SearchBar, ImageWithFallback, VideoPlayer
+│       ├── pages/             Vistas principales
+│       ├── services/          Cliente Axios + Socket.io
+│       ├── store/             Estado global con Zustand
+│       └── utils/             Helpers de imagenes, permisos, sonido
+├── backend/                   Node.js + Express (puerto 3001)
+│   └── src/
+│       ├── controllers/       Logica de cada endpoint
+│       ├── models/            Modelos Sequelize
+│       ├── routes/            Definicion de rutas
+│       ├── middlewares/       Auth, errorHandler, rate limiting
+│       ├── sockets/           Handlers Socket.io en tiempo real
+│       └── seeders/           Datos de prueba
+├── database/                  Schema SQL y migraciones
+└── docs/                      Checklist de pruebas y convenciones
 ```
 
 ---
 
-## Scripts disponibles
-
-### Frontend
-| Comando | Descripción |
-|---|---|
-| `npm run dev` | Servidor de desarrollo (puerto 5173) |
-| `npm run build` | Build de producción |
-| `npm run lint` | Verificar errores de ESLint |
-| `npm run lint:fix` | Corregir errores automáticamente |
-| `npm run format` | Formatear código con Prettier |
+## Scripts
 
 ### Backend
-| Comando | Descripción |
+| Comando | Descripcion |
 |---|---|
-| `npm run dev` | Servidor con hot-reload (nodemon) |
-| `npm start` | Servidor de producción |
-| `npm run lint` | Verificar errores de ESLint |
-| `npm run lint:fix` | Corregir errores automáticamente |
+| `npm run dev` | Servidor con hot-reload |
+| `npm start` | Servidor de produccion |
+| `npm run db:seed` | Cargar datos de prueba |
+| `npm run db:fix` | Corregir rutas de imagenes en BD |
+
+### Frontend
+| Comando | Descripcion |
+|---|---|
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Build de produccion |
+| `npm run lint` | Verificar errores ESLint |
 
 ---
 
-## Variables de entorno (backend)
+## Variables de entorno
 
-Ver [`backend/.env.example`](backend/.env.example) para la lista completa documentada.
+Ver [`backend/.env.example`](backend/.env.example) para la lista completa.
 
-| Variable | Descripción | Default |
+| Variable | Descripcion | Default |
 |---|---|---|
 | `PORT` | Puerto del servidor | `3001` |
-| `DB_NAME` | Nombre de la base de datos MySQL | — |
+| `DB_NAME` | Nombre de la base de datos | — |
 | `DB_USER` | Usuario MySQL | `root` |
-| `DB_PASSWORD` | Contraseña MySQL | *(vacío en XAMPP)* |
-| `JWT_SECRET` | Clave secreta para JWT | — |
-| `JWT_EXPIRES_IN` | Expiración del access token | `15m` |
-| `JWT_REFRESH_SECRET` | Clave para refresh tokens | — |
-| `CORS_ORIGIN` | Origen permitido por CORS | `http://localhost:5173` |
+| `DB_PASSWORD` | Contrasena MySQL | *(vacio)* |
+| `JWT_SECRET` | Clave secreta para tokens | — |
+| `CORS_ORIGIN` | Origen permitido | `http://localhost:5173` |
 
 ---
 
-## Fases del proyecto
+## Estado del proyecto
 
-| Fase | Descripción | Estado |
+| Fase | Descripcion | Estado |
 |---|---|---|
-| 0 | Setup, arquitectura y design system | ✅ Completa |
-| 1 | Modelado de datos MySQL | ⏳ Pendiente |
-| 2 | Backend base + autenticación | ⏳ Pendiente |
-| 3 | Backend CRUD de entidades deportivas | ⏳ Pendiente |
-| 4 | Frontend foundation + design system | ⏳ Pendiente |
-| 5 | Vistas públicas | ⏳ Pendiente |
-| 6 | Tiempo real (WebSockets) | ⏳ Pendiente |
-| 7 | Panel administrativo | ⏳ Pendiente |
-| 8 | Estadísticas avanzadas y visualizaciones | ⏳ Pendiente |
-| 9 | IA, predicciones y rankings | ⏳ Pendiente |
-| 10 | Datos reales (StatsBomb) + notificaciones | ⏳ Pendiente |
-| 11 | QA, optimización y cierre | ⏳ Pendiente |
+| 0 | Setup, arquitectura y design system | Completa |
+| 1 | Modelado de datos MySQL | Completa |
+| 2 | Autenticacion JWT y roles | Completa |
+| 3 | API REST — equipos, jugadores, ligas, partidos | Completa |
+| 4 | Panel administrativo | Completa |
+| 5 | Vistas publicas y perfiles | Completa |
+| 6 | Tiempo real con Socket.io | En progreso |
+| 7 | Estadisticas avanzadas y graficos | Pendiente |
+| 8 | Predicciones con IA | Pendiente |
+| 9 | Notificaciones push | Pendiente |
+| 10 | Deploy a produccion | Pendiente |
 
 ---
 
-## Arquitectura de decisiones
+## Licencia
 
-- **Sequelize sobre Knex:** migraciones CLI integradas, soporte oficial MySQL, ecosistema maduro.
-- **Zustand sobre Redux Toolkit:** sin boilerplate, API simple, suficiente para este tamaño de proyecto.
-- **Recharts + Chart.js:** Recharts para visualizaciones SVG React-nativas; Chart.js para casos específicos de canvas.
-- **express-validator:** validación declarativa integrada con Express sin dependencias extra.
-
----
-
-## Convenciones
-
-Ver [`docs/conventions.md`](docs/conventions.md) para naming, commits, ramas y estructura de código.
+MIT

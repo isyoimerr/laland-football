@@ -221,7 +221,7 @@ export default function HeroSection() {
                 ref={el => { if (el) videoRefs.current[i] = el }}
                 muted playsInline preload="metadata"
                 className="w-full h-full object-cover"
-                style={{ filter: 'blur(10px)' }}
+                style={{ filter: 'blur(3px)' }}
               >
                 <source src={slide.src} type="video/mp4" />
               </video>
@@ -230,7 +230,7 @@ export default function HeroSection() {
                 src={slide.src}
                 alt=""
                 className="w-full h-full object-cover"
-                style={{ filter: 'blur(10px)' }}
+                style={{ filter: 'blur(3px)' }}
                 loading={i <= 1 ? 'eager' : 'lazy'}
               />
             )}
@@ -239,8 +239,8 @@ export default function HeroSection() {
       </div>
 
       {/* ── Overlay oscuro sobre el video ────────────────────── */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/70 via-bg-primary/40 to-bg-primary/80 pointer-events-none" />
-      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(10,14,26,0.6) 100%)' }} pointer-events="none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/50 via-bg-primary/25 to-bg-primary/65 pointer-events-none" />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, transparent 50%, rgba(10,14,26,0.4) 100%)' }} pointer-events="none" />
 
       {/* ── Fondos con gradientes ────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none">
