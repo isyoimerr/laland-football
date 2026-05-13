@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+  <!-- Shield shape -->
+  <path d="M60 4L8 24v52c0 28 22 52 52 60 30-8 52-32 52-60V24L60 4z" fill="#A50044" stroke="#004D98" stroke-width="3"/>
+  <!-- Cross on shield -->
+  <rect x="30" y="36" width="60" height="16" fill="#FFD700" rx="2"/>
+  <rect x="52" y="24" width="16" height="40" fill="#FFD700" rx="2"/>
+  <!-- Stripes bottom -->
+  <clipPath id="shield-clip">
+    <path d="M60 4L8 24v52c0 28 22 52 52 60 30-8 52-32 52-60V24L60 4z"/>
+  </clipPath>
+  <g clip-path="url(#shield-clip)">
+    <rect x="0" y="64" width="40" height="80" fill="#004D98"/>
+    <rect x="40" y="64" width="40" height="80" fill="#FFD700"/>
+    <rect x="80" y="64" width="40" height="80" fill="#A50044"/>
+  </g>
+  <!-- FCB Letters -->
+  <text x="60" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="white" letter-spacing="1">FCB</text>
+</svg>

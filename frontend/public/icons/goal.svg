@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Balón de fútbol simplificado -->
+  <circle cx="16" cy="16" r="14" fill="#1f2937" stroke="#00d4a1" stroke-width="1.5"/>
+  <!-- Pentágono central -->
+  <polygon points="16,8 20.5,11.5 18.8,17 13.2,17 11.5,11.5" fill="#00d4a1"/>
+  <!-- Líneas del balón -->
+  <line x1="16" y1="8" x2="10" y2="14" stroke="#00d4a1" stroke-width="1" opacity="0.5"/>
+  <line x1="16" y1="8" x2="22" y2="14" stroke="#00d4a1" stroke-width="1" opacity="0.5"/>
+  <line x1="11.5" y1="11.5" x2="6" y2="13" stroke="#00d4a1" stroke-width="1" opacity="0.5"/>
+  <line x1="20.5" y1="11.5" x2="26" y2="13" stroke="#00d4a1" stroke-width="1" opacity="0.5"/>
+  <line x1="13.2" y1="17" x2="10" y2="22" stroke="#00d4a1" stroke-width="1" opacity="0.5"/>
+  <line x1="18.8" y1="17" x2="22" y2="22" stroke="#00d4a1" stroke-width="1" opacity="0.5"/>
+</svg>

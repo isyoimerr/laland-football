@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Fondo circular -->
+  <circle cx="60" cy="60" r="60" fill="#1f2937"/>
+  <!-- Cabeza -->
+  <circle cx="60" cy="38" r="16" fill="#374151"/>
+  <!-- Cuerpo / silueta jugador -->
+  <path d="M30 100 Q30 72 45 66 Q52 63 60 63 Q68 63 75 66 Q90 72 90 100 Z" fill="#374151"/>
+  <!-- Camiseta / acento -->
+  <path d="M40 78 Q50 72 60 72 Q70 72 80 78 L78 95 Q60 90 42 95 Z" fill="#00d4a1" opacity="0.35"/>
+  <!-- Número en camiseta -->
+  <text x="60" y="88" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#00d4a1" opacity="0.7">?</text>
+  <!-- Borde verde sutil -->
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#00d4a1" stroke-width="1" opacity="0.2"/>
+</svg>

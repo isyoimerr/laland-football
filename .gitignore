@@ -1,0 +1,43 @@
+# ─── Dependencias ─────────────────────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ─── Builds ───────────────────────────────────────────────────────────────────
+frontend/dist/
+frontend/.vite/
+backend/dist/
+
+# ─── Variables de entorno (nunca al repo) ─────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ─── Sistema operativo ────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ─── IDE ──────────────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# ─── Tests ────────────────────────────────────────────────────────────────────
+coverage/
+
+# ─── Misc ─────────────────────────────────────────────────────────────────────
+*.local
+.cache/

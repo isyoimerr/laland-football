@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" width="1440" height="600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="heroGlow" cx="50%" cy="70%" r="60%">
+      <stop offset="0%" stop-color="#00d4a1" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0a0e1a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="centerLight" cx="50%" cy="100%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0a0e1a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Grid pattern de campo -->
+    <pattern id="fieldGrid" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#1f2937" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <!-- Fondo base -->
+  <rect width="1440" height="600" fill="#0a0e1a"/>
+  <!-- Grid sutil de campo -->
+  <rect width="1440" height="600" fill="url(#fieldGrid)" opacity="0.6"/>
+  <!-- Gradiente radial verde (luz de campo) -->
+  <rect width="1440" height="600" fill="url(#heroGlow)"/>
+  <rect width="1440" height="600" fill="url(#centerLight)"/>
+  <!-- Líneas de campo estilizadas (perspectiva) -->
+  <!-- Círculo central -->
+  <ellipse cx="720" cy="620" rx="280" ry="160" fill="none" stroke="#00d4a1" stroke-width="1" opacity="0.1"/>
+  <ellipse cx="720" cy="620" rx="180" ry="100" fill="none" stroke="#00d4a1" stroke-width="1" opacity="0.08"/>
+  <!-- Línea central -->
+  <line x1="0" y1="620" x2="1440" y2="620" stroke="#00d4a1" stroke-width="1" opacity="0.1"/>
+  <!-- Líneas laterales (perspectiva) -->
+  <line x1="720" y1="0" x2="200" y2="600" stroke="#00d4a1" stroke-width="0.8" opacity="0.06"/>
+  <line x1="720" y1="0" x2="1240" y2="600" stroke="#00d4a1" stroke-width="0.8" opacity="0.06"/>
+  <!-- Destellos de luz superiores (luces del estadio) -->
+  <circle cx="150" cy="60" r="80" fill="#ffffff" opacity="0.015"/>
+  <circle cx="400" cy="30" r="60" fill="#ffffff" opacity="0.012"/>
+  <circle cx="720" cy="20" r="100" fill="#ffffff" opacity="0.02"/>
+  <circle cx="1040" cy="30" r="60" fill="#ffffff" opacity="0.012"/>
+  <circle cx="1290" cy="60" r="80" fill="#ffffff" opacity="0.015"/>
+  <!-- Partículas / puntos de luz -->
+  <circle cx="320" cy="180" r="1.5" fill="#00d4a1" opacity="0.4"/>
+  <circle cx="580" cy="120" r="1" fill="#00d4a1" opacity="0.3"/>
+  <circle cx="860" cy="150" r="1.5" fill="#3b82f6" opacity="0.4"/>
+  <circle cx="1100" cy="200" r="1" fill="#00d4a1" opacity="0.3"/>
+  <circle cx="200" cy="300" r="1" fill="#3b82f6" opacity="0.25"/>
+  <circle cx="1200" cy="280" r="1.5" fill="#00d4a1" opacity="0.3"/>
+  <circle cx="700" cy="250" r="1" fill="#f59e0b" opacity="0.2"/>
+  <!-- Gradiente de oscurecimiento inferior -->
+  <defs>
+    <linearGradient id="fadeBottom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="60%" stop-color="#0a0e1a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0a0e1a" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="600" fill="url(#fadeBottom)"/>
+</svg>

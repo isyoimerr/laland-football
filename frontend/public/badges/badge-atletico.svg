@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+  <path d="M60 4L8 24v52c0 28 22 52 52 60 30-8 52-32 52-60V24L60 4z" fill="#CB3524" stroke="#FFFFFF" stroke-width="3"/>
+  <!-- White stripes -->
+  <clipPath id="atl-clip">
+    <path d="M60 4L8 24v52c0 28 22 52 52 60 30-8 52-32 52-60V24L60 4z"/>
+  </clipPath>
+  <g clip-path="url(#atl-clip)">
+    <rect x="32" y="0" width="18" height="200" fill="white"/>
+    <rect x="70" y="0" width="18" height="200" fill="white"/>
+  </g>
+  <text x="60" y="92" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="bold" fill="white">ATM</text>
+  <rect x="30" y="100" width="60" height="2" fill="white" rx="1"/>
+  <text x="60" y="118" text-anchor="middle" font-size="8" fill="white" font-family="sans-serif">ATLÉTICO</text>
+</svg>

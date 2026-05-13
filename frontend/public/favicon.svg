@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Fondo circular oscuro -->
+  <circle cx="32" cy="32" r="32" fill="#0a0e1a"/>
+  <!-- Balón base -->
+  <circle cx="32" cy="32" r="22" fill="#1f2937" stroke="#00d4a1" stroke-width="2"/>
+  <!-- Paneles del balón -->
+  <polygon points="32,14 40,20 37,30 27,30 24,20" fill="#00d4a1" opacity="0.9"/>
+  <polygon points="40,20 50,24 50,36 42,40 37,30" fill="#111827" stroke="#00d4a1" stroke-width="1"/>
+  <polygon points="24,20 14,24 14,36 22,40 27,30" fill="#111827" stroke="#00d4a1" stroke-width="1"/>
+  <polygon points="22,40 27,50 37,50 42,40 37,30 27,30" fill="#1f2937" stroke="#00d4a1" stroke-width="1"/>
+  <polygon points="14,36 18,46 27,50 22,40" fill="#00d4a1" opacity="0.6"/>
+  <polygon points="50,36 46,46 37,50 42,40" fill="#00d4a1" opacity="0.6"/>
+  <!-- Brillo -->
+  <circle cx="26" cy="24" r="4" fill="white" opacity="0.12"/>
+</svg>

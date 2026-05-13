@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Flecha arriba (entra) -->
+  <path d="M10 20 L10 12 L7 12 L13 5 L19 12 L16 12 L16 20 Z" fill="#00d4a1"/>
+  <!-- Flecha abajo (sale) -->
+  <path d="M22 12 L22 20 L25 20 L19 27 L13 20 L16 20 L16 12 Z" fill="#ef4444"/>
+</svg>

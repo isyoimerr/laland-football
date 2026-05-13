@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+  <path d="M60 4L8 24v52c0 28 22 52 52 60 30-8 52-32 52-60V24L60 4z" fill="#1a2535" stroke="#00d4a1" stroke-width="2.5"/>
+  <circle cx="60" cy="70" r="22" stroke="#00d4a1" stroke-width="2" fill="none"/>
+  <path d="M60 50v40M42 62h36M45 84l30-28M75 84l-30-28" stroke="#00d4a1" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="60" y="118" text-anchor="middle" font-size="9" fill="#00d4a1" font-family="sans-serif">EQUIPO</text>
+</svg>

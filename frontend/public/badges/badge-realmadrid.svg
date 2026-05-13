@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+  <!-- Shield shape -->
+  <path d="M60 4L8 24v52c0 28 22 52 52 60 30-8 52-32 52-60V24L60 4z" fill="#0033A0" stroke="#FFD700" stroke-width="3"/>
+  <!-- Crown top -->
+  <path d="M38 24h44l-6 10H44z" fill="#FFD700"/>
+  <path d="M36 20l6 14h4l-4-10h28l-4 10h4l6-14H36z" fill="#FFD700"/>
+  <!-- RM Letters -->
+  <text x="60" y="85" text-anchor="middle" font-family="Georgia,serif" font-size="28" font-weight="bold" fill="white" letter-spacing="2">RM</text>
+  <!-- Gold divider -->
+  <rect x="30" y="95" width="60" height="2" fill="#FFD700" rx="1"/>
+  <!-- Stars -->
+  <text x="60" y="115" text-anchor="middle" font-size="10" fill="#FFD700">★ ★ ★</text>
+</svg>

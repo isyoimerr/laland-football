@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Fondo circular -->
+  <circle cx="60" cy="60" r="60" fill="#1f2937"/>
+  <!-- Cabeza -->
+  <circle cx="60" cy="38" r="16" fill="#374151"/>
+  <!-- Cuerpo tipo blazer -->
+  <path d="M28 105 Q28 72 44 66 Q52 63 60 63 Q68 63 76 66 Q92 72 92 105 Z" fill="#374151"/>
+  <!-- Solapa izquierda del blazer -->
+  <path d="M44 66 L52 63 L55 80 L44 85 Z" fill="#1f2937"/>
+  <!-- Solapa derecha del blazer -->
+  <path d="M76 66 L68 63 L65 80 L76 85 Z" fill="#1f2937"/>
+  <!-- Corbata / acento -->
+  <path d="M57 63 L63 63 L62 88 L60 92 L58 88 Z" fill="#3b82f6" opacity="0.6"/>
+  <!-- Borde azul sutil (técnico = azul) -->
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.2"/>
+</svg>
