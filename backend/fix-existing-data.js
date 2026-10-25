@@ -17,25 +17,15 @@ const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
   logging: false,
 })
 
-const stadiumImgs = [
-  '/assets/MISCELÁNEOS/FOTOS_JUGADORES_ESTADIOS/Estadio_01_panoramica.webp',
-  '/assets/MISCELÁNEOS/FOTOS_JUGADORES_ESTADIOS/Estadio_02_interior.webp',
-  '/assets/MISCELÁNEOS/FOTOS_JUGADORES_ESTADIOS/Estadio_03_nocturno.webp',
-]
-
 async function fixExistingData() {
   try {
     await sequelize.authenticate()
     console.log('✓ Conectado a MySQL\n')
 
-    // 1. Fix stadium images (use real files from MISCELÁNEOS)
-    console.log('1. Corrigiendo imágenes de estadios...')
-    const stadiums = await sequelize.query('SELECT id, name FROM stadiums ORDER BY id', { type: Sequelize.QueryTypes.SELECT })
-    for (let i = 0; i < stadiums.length; i++) {
-      const img = stadiumImgs[i % stadiumImgs.length]
-      await sequelize.query('UPDATE stadiums SET image_path = ? WHERE id = ?', { replacements: [img, stadiums[i].id] })
-    }
-    console.log(`   ✓ ${stadiums.length} estadios actualizados`)
+    // 1. Clear temporary stadium photos until custom uploads are available.
+    console.log('1. Quitando imágenes temporales de estadios...')
+    await sequelize.query('UPDATE stadiums SET image_path = NULL')
+    console.log('   ✓ Imágenes de estadios eliminadas')
 
     // 2. Fix team logos (only teams with real files)
     console.log('2. Corrigiendo logos de equipos...')
@@ -56,29 +46,10 @@ async function fixExistingData() {
     const totalTeams = await sequelize.query('SELECT COUNT(*) as c FROM teams', { type: Sequelize.QueryTypes.SELECT })
     console.log(`   ✓ ${logoFixes.length} equipos con logo, ${totalTeams[0].c - logoFixes.length} sin logo`)
 
-    // 3. Fix team background paths
-    console.log('3. Corrigiendo fondos de equipos...')
-    const bgFolderMap = {
-      'barcelona': 'Barcelona',
-      'real-madrid': 'Real_Madrid',
-      'atletico-madrid': 'Atletico_Madrid',
-      'manchester-united': 'Manchester_United',
-      'liverpool': 'Liverpool',
-      'chelsea': 'Chelsea',
-      'bayern-munich': 'Bayern_Munich',
-      'borussia-dortmund': 'Borussia_Dortmund',
-      'inter-milan': 'Inter_Milan',
-      'ac-milan': 'AC_Milan',
-      'paris-saint-germain': 'PSG',
-      'juventus': 'Juventus',
-      'tigres-fc': 'Tigres_FC',
-    }
-    for (const [slug, folder] of Object.entries(bgFolderMap)) {
-      await sequelize.query('UPDATE teams SET background_path = ? WHERE slug = ?', {
-        replacements: [`/assets/EQUIPOS/${folder}/fondo.jpg`, slug],
-      })
-    }
-    console.log(`   ✓ ${Object.keys(bgFolderMap).length} equipos actualizados`)
+    // 3. Clear temporary team backgrounds until custom uploads are available.
+    console.log('3. Quitando fondos temporales de equipos...')
+    await sequelize.query('UPDATE teams SET background_path = NULL')
+    console.log('   ✓ Fondos de equipos eliminados')
 
     // 4. Fix league logos (set to null — no real files exist)
     console.log('4. Corrigiendo logos de ligas...')

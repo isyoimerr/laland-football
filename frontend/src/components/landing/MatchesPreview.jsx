@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import ImageWithFallback from '@components/common/ImageWithFallback'
-import { getTeamInitials } from '@utils/imageUtils'
 
 const MATCHES = [
   {
@@ -12,7 +11,6 @@ const MATCHES = [
     home: { name: 'Real Madrid', score: 2, abbr: 'RMA', badge: '/badges/badge-realmadrid.svg' },
     away: { name: 'Manchester City', score: 1, abbr: 'MCI', badge: '/badges/badge-generic.svg' },
     stadium: 'Santiago Bernabéu',
-    stadiumImg: '/assets/MISCELÁNEOS/FOTOS_JUGADORES_ESTADIOS/Estadio_01_panoramica.webp',
     stats: { possession: [58, 42], shots: [14, 8] },
   },
   {
@@ -23,7 +21,6 @@ const MATCHES = [
     home: { name: 'Barcelona', score: 1, abbr: 'BAR', badge: '/badges/badge-barcelona.svg' },
     away: { name: 'Atlético Madrid', score: 1, abbr: 'ATM', badge: '/badges/badge-atletico.svg' },
     stadium: 'Spotify Camp Nou',
-    stadiumImg: '/assets/MISCELÁNEOS/FOTOS_JUGADORES_ESTADIOS/Estadio_02_interior.webp',
     stats: { possession: [62, 38], shots: [9, 5] },
   },
   {
@@ -34,7 +31,6 @@ const MATCHES = [
     home: { name: 'Liverpool', score: null, abbr: 'LIV', badge: '/badges/badge-generic.svg' },
     away: { name: 'Arsenal', score: null, abbr: 'ARS', badge: '/badges/badge-generic.svg' },
     stadium: 'Anfield',
-    stadiumImg: '/assets/MISCELÁNEOS/FOTOS_JUGADORES_ESTADIOS/Estadio_03_nocturno.webp',
     stats: null,
   },
 ]
@@ -96,16 +92,9 @@ function MatchCard({ match, delay }) {
       transition={{ duration: 0.55, delay, ease: 'easeOut' }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
     >
-      {/* Stadium image strip */}
-      <div className="relative h-16 overflow-hidden">
-        <img
-          src={match.stadiumImg}
-          alt={match.stadium}
-          className="w-full h-full object-cover object-center"
-          draggable="false"
-        />
+      {/* Stadium placeholder strip until custom photos are uploaded */}
+      <div className="relative h-16 overflow-hidden bg-gradient-to-r from-bg-tertiary via-bg-secondary to-bg-tertiary">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg-secondary/95" />
-        <div className="absolute inset-0 bg-bg-primary/40" />
         {/* Competition badge overlay */}
         <div className="absolute top-2 left-3 flex items-center gap-2">
           <div className="w-1.5 h-1.5 rounded-full" style={{ background: match.competitionColor }} />
