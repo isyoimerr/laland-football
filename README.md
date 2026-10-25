@@ -31,10 +31,7 @@ cd laland-football
   <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/mockups/mockup-app.svg" alt="Mockup de la aplicación LALAND Football" width="85%" />
 </p>
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/banners/banner-trophy.svg" alt="Banner de trofeo" width="48%" />
-  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/images/hero-bg.svg" alt="Fondo visual principal de LALAND Football" width="48%" />
-</p>
+
 
 ## Qué es LALAND Football
 
