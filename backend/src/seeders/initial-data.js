@@ -57,41 +57,36 @@ module.exports = {
     ])
 
     // ── ESTADIOS (IDs 1-12) ───────────────────────────────────────────────────
-    const stadiumImgs = [
-      '/assets/MISCELÁNEOS/FOTOS_JUGADORES_ESTADIOS/Estadio_01_panoramica.webp',
-      '/assets/MISCELÁNEOS/FOTOS_JUGADORES_ESTADIOS/Estadio_02_interior.webp',
-      '/assets/MISCELÁNEOS/FOTOS_JUGADORES_ESTADIOS/Estadio_03_nocturno.webp',
-    ]
     await queryInterface.bulkInsert('stadiums', [
-      { name: 'Santiago Bernabéu',  city: 'Madrid',     country: 'Spain',    capacity: 81044, image_path: stadiumImgs[0], created_at: new Date(), updated_at: new Date() },
-      { name: 'Camp Nou',           city: 'Barcelona',  country: 'Spain',    capacity: 99354, image_path: stadiumImgs[1], created_at: new Date(), updated_at: new Date() },
-      { name: 'Wanda Metropolitano',city: 'Madrid',     country: 'Spain',    capacity: 68456, image_path: stadiumImgs[2], created_at: new Date(), updated_at: new Date() },
-      { name: 'Old Trafford',       city: 'Manchester', country: 'England',  capacity: 74310, image_path: stadiumImgs[0], created_at: new Date(), updated_at: new Date() },
-      { name: 'Anfield',            city: 'Liverpool',  country: 'England',  capacity: 53394, image_path: stadiumImgs[1], created_at: new Date(), updated_at: new Date() },
-      { name: 'Stamford Bridge',    city: 'London',     country: 'England',  capacity: 40341, image_path: stadiumImgs[2], created_at: new Date(), updated_at: new Date() },
-      { name: 'Allianz Arena',      city: 'Munich',     country: 'Germany',  capacity: 75024, image_path: stadiumImgs[0], created_at: new Date(), updated_at: new Date() },
-      { name: 'Signal Iduna Park',  city: 'Dortmund',   country: 'Germany',  capacity: 81365, image_path: stadiumImgs[1], created_at: new Date(), updated_at: new Date() },
-      { name: 'San Siro',           city: 'Milan',      country: 'Italy',    capacity: 80018, image_path: stadiumImgs[2], created_at: new Date(), updated_at: new Date() },
-      { name: 'Allianz Stadium',    city: 'Turin',      country: 'Italy',    capacity: 41507, image_path: stadiumImgs[0], created_at: new Date(), updated_at: new Date() },
-      { name: 'Parc des Princes',   city: 'Paris',      country: 'France',   capacity: 47929, image_path: stadiumImgs[1], created_at: new Date(), updated_at: new Date() },
-      { name: 'El Campín',          city: 'Bogotá',     country: 'Colombia', capacity: 36343, image_path: stadiumImgs[2], created_at: new Date(), updated_at: new Date() },
+      { name: 'Santiago Bernabéu',  city: 'Madrid',     country: 'Spain',    capacity: 81044, image_path: null, created_at: new Date(), updated_at: new Date() },
+      { name: 'Camp Nou',           city: 'Barcelona',  country: 'Spain',    capacity: 99354, image_path: null, created_at: new Date(), updated_at: new Date() },
+      { name: 'Wanda Metropolitano',city: 'Madrid',     country: 'Spain',    capacity: 68456, image_path: null, created_at: new Date(), updated_at: new Date() },
+      { name: 'Old Trafford',       city: 'Manchester', country: 'England',  capacity: 74310, image_path: null, created_at: new Date(), updated_at: new Date() },
+      { name: 'Anfield',            city: 'Liverpool',  country: 'England',  capacity: 53394, image_path: null, created_at: new Date(), updated_at: new Date() },
+      { name: 'Stamford Bridge',    city: 'London',     country: 'England',  capacity: 40341, image_path: null, created_at: new Date(), updated_at: new Date() },
+      { name: 'Allianz Arena',      city: 'Munich',     country: 'Germany',  capacity: 75024, image_path: null, created_at: new Date(), updated_at: new Date() },
+      { name: 'Signal Iduna Park',  city: 'Dortmund',   country: 'Germany',  capacity: 81365, image_path: null, created_at: new Date(), updated_at: new Date() },
+      { name: 'San Siro',           city: 'Milan',      country: 'Italy',    capacity: 80018, image_path: null, created_at: new Date(), updated_at: new Date() },
+      { name: 'Allianz Stadium',    city: 'Turin',      country: 'Italy',    capacity: 41507, image_path: null, created_at: new Date(), updated_at: new Date() },
+      { name: 'Parc des Princes',   city: 'Paris',      country: 'France',   capacity: 47929, image_path: null, created_at: new Date(), updated_at: new Date() },
+      { name: 'El Campín',          city: 'Bogotá',     country: 'Colombia', capacity: 36343, image_path: null, created_at: new Date(), updated_at: new Date() },
     ])
 
     // ── EQUIPOS (IDs 1-13) ────────────────────────────────────────────────────
     const teams = [
-      { name: 'FC Barcelona',        slug: 'barcelona',          league_id: 1, country: 'Spain',    logo_path: '/assets/EQUIPOS/Barcelona/logo.png',         background_path: '/assets/EQUIPOS/Barcelona/fondo.jpg' },
-      { name: 'Real Madrid',         slug: 'real-madrid',        league_id: 1, country: 'Spain',    logo_path: '/assets/EQUIPOS/Real_Madrid/logo.png',       background_path: '/assets/EQUIPOS/Real_Madrid/fondo.jpg' },
-      { name: 'Atlético Madrid',     slug: 'atletico-madrid',    league_id: 1, country: 'Spain',    logo_path: null,                                         background_path: '/assets/EQUIPOS/Atletico_Madrid/fondo.jpg' },
-      { name: 'Manchester United',   slug: 'manchester-united',  league_id: 2, country: 'England',  logo_path: '/assets/EQUIPOS/Manchester_United/logo.webp',  background_path: '/assets/EQUIPOS/Manchester_United/fondo.jpg' },
-      { name: 'Liverpool FC',        slug: 'liverpool',          league_id: 2, country: 'England',  logo_path: null,                                         background_path: '/assets/EQUIPOS/Liverpool/fondo.jpg' },
-      { name: 'Chelsea',             slug: 'chelsea',            league_id: 2, country: 'England',  logo_path: null,                                         background_path: '/assets/EQUIPOS/Chelsea/fondo.jpg' },
-      { name: 'Bayern Munich',       slug: 'bayern-munich',      league_id: 3, country: 'Germany',  logo_path: null,                                         background_path: '/assets/EQUIPOS/Bayern_Munich/fondo.jpg' },
-      { name: 'Borussia Dortmund',   slug: 'borussia-dortmund',  league_id: 3, country: 'Germany',  logo_path: null,                                         background_path: '/assets/EQUIPOS/Borussia_Dortmund/fondo.jpg' },
-      { name: 'Inter Milan',         slug: 'inter-milan',        league_id: 4, country: 'Italy',    logo_path: null,                                         background_path: '/assets/EQUIPOS/Inter_Milan/fondo.jpg' },
-      { name: 'AC Milan',            slug: 'ac-milan',           league_id: 4, country: 'Italy',    logo_path: null,                                         background_path: '/assets/EQUIPOS/AC_Milan/fondo.jpg' },
-      { name: 'Paris Saint-Germain', slug: 'paris-saint-germain',league_id: 5, country: 'France',   logo_path: null,                                         background_path: '/assets/EQUIPOS/PSG/fondo.jpg' },
-      { name: 'Juventus',            slug: 'juventus',           league_id: 4, country: 'Italy',    logo_path: null,                                         background_path: '/assets/EQUIPOS/Juventus/fondo.jpg' },
-      { name: 'Tigres FC',           slug: 'tigres-fc',          league_id: 6, country: 'Colombia', logo_path: null,                                         background_path: '/assets/EQUIPOS/Tigres_FC/fondo.jpg' },
+      { name: 'FC Barcelona',        slug: 'barcelona',          league_id: 1, country: 'Spain',    logo_path: '/assets/EQUIPOS/Barcelona/logo.png',         background_path: null },
+      { name: 'Real Madrid',         slug: 'real-madrid',        league_id: 1, country: 'Spain',    logo_path: '/assets/EQUIPOS/Real_Madrid/logo.png',       background_path: null },
+      { name: 'Atlético Madrid',     slug: 'atletico-madrid',    league_id: 1, country: 'Spain',    logo_path: null,                                         background_path: null },
+      { name: 'Manchester United',   slug: 'manchester-united',  league_id: 2, country: 'England',  logo_path: '/assets/EQUIPOS/Manchester_United/logo.webp',  background_path: null },
+      { name: 'Liverpool FC',        slug: 'liverpool',          league_id: 2, country: 'England',  logo_path: null,                                         background_path: null },
+      { name: 'Chelsea',             slug: 'chelsea',             league_id: 2, country: 'England',  logo_path: null,                                         background_path: null },
+      { name: 'Bayern Munich',       slug: 'bayern-munich',       league_id: 3, country: 'Germany',  logo_path: null,                                         background_path: null },
+      { name: 'Borussia Dortmund',   slug: 'borussia-dortmund',   league_id: 3, country: 'Germany',  logo_path: null,                                         background_path: null },
+      { name: 'Inter Milan',         slug: 'inter-milan',         league_id: 4, country: 'Italy',    logo_path: null,                                         background_path: null },
+      { name: 'AC Milan',            slug: 'ac-milan',            league_id: 4, country: 'Italy',    logo_path: null,                                         background_path: null },
+      { name: 'Paris Saint-Germain', slug: 'paris-saint-germain', league_id: 5, country: 'France',   logo_path: null,                                         background_path: null },
+      { name: 'Juventus',            slug: 'juventus',            league_id: 4, country: 'Italy',    logo_path: null,                                         background_path: null },
+      { name: 'Tigres FC',           slug: 'tigres-fc',           league_id: 6, country: 'Colombia', logo_path: null,                                         background_path: null },
     ]
     await queryInterface.bulkInsert('teams', teams.map(t => ({ ...t, created_at: new Date(), updated_at: new Date() })))
 

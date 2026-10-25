@@ -46,9 +46,7 @@ const BADGES = [
 
 const SLIDES = [
   { type: 'video', src: '/assets/VIDEOS/Highlights/Bayern_vs_Dortmund_Bundesliga.mp4' },
-  { type: 'image', src: '/landing-image.webp' },
   { type: 'video', src: '/assets/VIDEOS/Highlights/Tottenham_vs_Liverpool_UCL_Final.mp4' },
-  { type: 'image', src: '/landing-image.webp' },
 ]
 
 // Campo de fútbol como elemento decorativo de fondo (SVG puro, sin imágenes)

@@ -28,21 +28,7 @@ cd laland-football
 ## Vista previa visual
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/landing-image.webp" alt="Landing de LALAND Football" width="85%" />
-</p>
-
-<p align="center">
   <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/mockups/mockup-app.svg" alt="Mockup de la aplicación LALAND Football" width="85%" />
-</p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/banners/banner-live.jpg" alt="Banner de resultados en vivo" width="48%" />
-  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/banners/banner-players.jpg" alt="Banner de jugadores destacados" width="48%" />
-</p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/banners/banner-stats.jpg" alt="Banner de estadísticas de partidos" width="48%" />
-  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/banners/banner-celebration.jpg" alt="Banner de celebración deportiva" width="48%" />
 </p>
 
 <p align="center">
