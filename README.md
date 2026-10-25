@@ -1,243 +1,270 @@
-# LALAND Football
+<p align="center">
+  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/logo.svg" alt="Logo de LALAND Football" width="120" />
+</p>
 
-**Plataforma web de fútbol en tiempo real** — live scores, estadísticas avanzadas, perfiles de equipos y jugadores, tabla de posiciones y panel administrativo completo.
+<h1 align="center">LALAND Football</h1>
 
-Construido con vibe coding: idea, iteración rápida y entrega continua.
+<p align="center">
+  Plataforma full-stack para seguimiento de fútbol: partidos, estadísticas, perfiles y administración de contenido.
+</p>
 
----
+<p align="center">
+  <img src="https://img.shields.io/badge/JavaScript-ES2023-F7DF1E?logo=javascript&logoColor=000" alt="Badge JavaScript" />
+  <img src="https://img.shields.io/badge/Estado-En%20desarrollo-2563EB" alt="Badge estado del proyecto" />
+  <img src="https://img.shields.io/badge/Licencia-Sin%20archivo%20LICENSE-lightgrey" alt="Badge licencia" />
+</p>
 
-## Vista general
+## Demo y enlaces
 
-LALAND Football es una plataforma de nivel profesional inspirada en Sofascore y FotMob. Permite seguir partidos en vivo, consultar estadísticas detalladas, gestionar competiciones y administrar todos los datos desde un panel integrado.
-
----
-
-## Stack tecnológico
-
-| Capa | Tecnología |
-|---|---|
-| Frontend | React 18 + Vite, React Router 6, Zustand, TailwindCSS, Framer Motion |
-| Gráficos | Recharts + Chart.js |
-| Backend | Node.js + Express |
-| Base de datos | MySQL |
-| ORM | Sequelize |
-| Tiempo real | Socket.io |
-| Autenticación | JWT + bcrypt |
-| Validación | express-validator |
-
----
-
-## Funcionalidades
-
-**Plataforma pública**
-- Live scores con marcador en tiempo real via WebSocket
-- Perfiles completos de equipos, jugadores, técnicos y estadios
-- Tabla de posiciones calculada automáticamente por competición
-- Calendario de próximos partidos y resultados históricos
-- Búsqueda global con navegación por teclado
-- Estadísticas por jugador: goles, asistencias, tarjetas, minutos jugados
-
-**Panel administrativo**
-- Dashboard con métricas generales
-- Gestión de equipos, jugadores, partidos, ligas, estadios y videos
-- Registro de eventos en vivo: goles, tarjetas, sustituciones, lesiones
-- Control de roles: user, admin, super_admin
-- Subida de imágenes
-
----
-
-## Requisitos
-
-- Node.js >= 18
-- MySQL (XAMPP recomendado para desarrollo local)
-- npm >= 9
-
----
-
-## Instalación
-
-### 1. Clonar el repositorio
+- **Demo pública:** pendiente de publicación.
+- **Repositorio:** https://github.com/isyoimerr/laland-football
+- **Clonación:**
 
 ```bash
-git clone https://github.com/yoimer777/laland-football.git
+git clone https://github.com/isyoimerr/laland-football.git
 cd laland-football
 ```
 
-### 2. Crear la base de datos
+## Vista previa visual
 
-Iniciar MySQL y ejecutar:
+<p align="center">
+  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/landing-image.webp" alt="Landing de LALAND Football" width="85%" />
+</p>
 
-```sql
-CREATE DATABASE laland_football CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+<p align="center">
+  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/mockups/mockup-app.svg" alt="Mockup de la aplicación LALAND Football" width="85%" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/banners/banner-live.jpg" alt="Banner de resultados en vivo" width="48%" />
+  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/banners/banner-players.jpg" alt="Banner de jugadores destacados" width="48%" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/banners/banner-stats.jpg" alt="Banner de estadísticas de partidos" width="48%" />
+  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/banners/banner-celebration.jpg" alt="Banner de celebración deportiva" width="48%" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/banners/banner-trophy.svg" alt="Banner de trofeo" width="48%" />
+  <img src="https://raw.githubusercontent.com/isyoimerr/laland-football/main/frontend/public/images/hero-bg.svg" alt="Fondo visual principal de LALAND Football" width="48%" />
+</p>
+
+## Qué es LALAND Football
+
+LALAND Football es una plataforma web orientada a la gestión y visualización de información futbolística. Combina una experiencia pública para usuarios finales con un panel administrativo para operar datos de equipos, jugadores, ligas, partidos y recursos multimedia.
+
+## Funcionalidades de la plataforma pública
+
+- Vista de partidos y marcadores.
+- Perfiles de equipos, jugadores, técnicos y estadios.
+- Tabla de posiciones por competición.
+- Navegación por competiciones y detalles de encuentros.
+- Estadísticas por jugador y contenido visual asociado.
+
+## Funcionalidades del panel administrativo
+
+- Gestión CRUD de equipos, jugadores, ligas, partidos, técnicos y estadios.
+- Registro de eventos de partido.
+- Gestión de videos de partidos y relación video-jugador.
+- Carga de archivos por categorías mediante endpoint protegido.
+- Soporte de roles (`user`, `admin`, `super_admin`) con validación de acceso.
+
+## Stack tecnológico
+
+### Frontend
+- React 18 + Vite
+- React Router DOM
+- Zustand
+- Tailwind CSS
+- Framer Motion
+- Recharts y Chart.js
+- Socket.io Client
+
+### Backend
+- Node.js + Express
+- MySQL + Sequelize
+- Socket.io
+- JWT + bcrypt
+- express-validator
+- Helmet, CORS, rate limiting y Morgan
+
+## Arquitectura y flujo general
+
+1. El cliente React consume la API REST de Express.
+2. Express orquesta autenticación, validaciones y reglas de autorización por rol.
+3. Sequelize conecta el backend con MySQL para persistencia.
+4. Socket.io habilita eventos en tiempo real para actualizaciones de partidos.
+5. El panel administrativo opera sobre los mismos recursos expuestos por la API.
+
+## Estructura del repositorio
+
+```text
+laland-football/
+├── frontend/
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       ├── hooks/
+│       ├── pages/
+│       ├── services/
+│       ├── store/
+│       ├── styles/
+│       └── utils/
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middlewares/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── seeders/
+│   │   ├── services/
+│   │   └── validators/
+│   └── .env.example
+├── database/
+├── docs/
+└── README.md
 ```
 
-Luego importar el schema:
+## Requisitos e instalación
 
-```bash
-mysql -u root laland_football < backend/laland_football_schema.sql
-```
+### Requisitos
+- Node.js >= 18
+- npm >= 9
+- MySQL activo (XAMPP u otro entorno local)
 
-### 3. Configurar variables de entorno
+### Instalación
 
-```bash
-cd backend
-cp .env.example .env
-```
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/isyoimerr/laland-football.git
+   cd laland-football
+   ```
+2. Crea la base de datos:
+   ```sql
+   CREATE DATABASE laland_football CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   ```
+3. Importa el esquema:
+   ```bash
+   mysql -u root laland_football < backend/laland_football_schema.sql
+   ```
+4. Configura variables del backend:
+   ```bash
+   cd backend
+   cp .env.example .env
+   ```
+5. Instala dependencias:
+   ```bash
+   # Backend
+   cd backend && npm install
 
-Editar `.env` con los datos de tu entorno (funciona por defecto con XAMPP sin contraseña).
+   # Frontend
+   cd ../frontend && npm install
+   ```
+6. Carga datos semilla (desarrollo):
+   ```bash
+   cd backend
+   npm run db:seed
+   ```
+7. Ejecuta en desarrollo:
+   ```bash
+   # Terminal 1
+   cd backend
+   npm run dev
 
-### 4. Instalar dependencias
+   # Terminal 2
+   cd frontend
+   npm run dev
+   ```
 
-```bash
-# Backend
-cd backend && npm install
+## Variables de entorno y seguridad
 
-# Frontend
-cd ../frontend && npm install
-```
+Consulta `backend/.env.example` para la referencia completa.
 
-### 5. Cargar datos de prueba
+Variables principales:
 
-```bash
-cd backend
-npm run db:seed
-```
+- `PORT`
+- `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`
+- `JWT_SECRET`, `JWT_REFRESH_SECRET`, `JWT_EXPIRES_IN`, `JWT_REFRESH_EXPIRES_IN`
+- `CORS_ORIGIN`
+- `RATE_LIMIT_WINDOW_MS`, `RATE_LIMIT_MAX`, `AUTH_RATE_LIMIT_MAX`
 
-### 6. Iniciar los servidores
+Buenas prácticas:
 
-**Terminal 1 — Backend:**
-```bash
-cd backend
-npm run dev
-# Servidor en http://localhost:3001
-```
+- No subas archivos `.env` al repositorio.
+- Cambia los secretos JWT en cualquier entorno distinto a local.
+- Mantén tokens y credenciales fuera de commits e incidencias públicas.
 
-**Terminal 2 — Frontend:**
-```bash
-cd frontend
-npm run dev
-# App en http://localhost:5173
-```
+## Usuarios de prueba (desarrollo)
 
----
+Credenciales documentadas para entorno local con seeders:
 
-## Usuarios de prueba
-
-| Email | Contrasena | Rol |
+| Email | Contraseña | Rol |
 |---|---|---|
-| user@test.com | password123 | user |
-| admin@test.com | password123 | admin |
-| super_admin@test.com | password123 | super_admin |
-
----
+| `user@test.com` | `password123` | `user` |
+| `admin@test.com` | `password123` | `admin` |
+| `super_admin@test.com` | `password123` | `super_admin` |
 
 ## Endpoints principales
 
-```
-GET    /api/teams                       Listar equipos
-GET    /api/teams/:id                   Detalle equipo
-POST   /api/teams                       Crear equipo (admin)
-PUT    /api/teams/:id                   Editar equipo (admin)
-DELETE /api/teams/:id                   Eliminar equipo (super_admin)
+### Autenticación
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/auth/refresh`
+- `GET /api/auth/me`
 
-GET    /api/players?team_id=&position=  Listar/filtrar jugadores
-GET    /api/players/:id/stats           Estadisticas del jugador
+### Recursos deportivos
+- `GET /api/teams` · `GET /api/teams/:id`
+- `GET /api/players` · `GET /api/players/:id` · `GET /api/players/:id/stats`
+- `GET /api/leagues` · `GET /api/leagues/:id` · `GET /api/leagues/:id/standings`
+- `GET /api/matches` · `GET /api/matches/:id`
+- `GET /api/coaches` · `GET /api/coaches/:id`
+- `GET /api/stadiums` · `GET /api/stadiums/:id`
 
-GET    /api/matches?status=&league_id=  Listar/filtrar partidos
-POST   /api/matches/:id/events          Registrar evento en vivo (admin)
-
-GET    /api/leagues/:id/standings       Tabla de posiciones
-
-GET    /api/coaches                     Listar tecnicos
-GET    /api/stadiums                    Listar estadios
-
-POST   /api/auth/login                  Iniciar sesion
-POST   /api/auth/register               Registrar usuario
-```
-
----
-
-## Estructura del proyecto
-
-```
-laland-football/
-├── frontend/                  React + Vite (puerto 5173)
-│   └── src/
-│       ├── components/        Componentes reutilizables
-│       │   ├── admin/         Panel administrativo
-│       │   ├── landing/       Secciones de la pagina principal
-│       │   ├── layout/        Navbar, Footer, MainLayout
-│       │   └── common/        SearchBar, ImageWithFallback, VideoPlayer
-│       ├── pages/             Vistas principales
-│       ├── services/          Cliente Axios + Socket.io
-│       ├── store/             Estado global con Zustand
-│       └── utils/             Helpers de imagenes, permisos, sonido
-├── backend/                   Node.js + Express (puerto 3001)
-│   └── src/
-│       ├── controllers/       Logica de cada endpoint
-│       ├── models/            Modelos Sequelize
-│       ├── routes/            Definicion de rutas
-│       ├── middlewares/       Auth, errorHandler, rate limiting
-│       ├── sockets/           Handlers Socket.io en tiempo real
-│       └── seeders/           Datos de prueba
-├── database/                  Schema SQL y migraciones
-└── docs/                      Checklist de pruebas y convenciones
-```
-
----
+### Operaciones protegidas (admin / super_admin)
+- CRUD sobre equipos, jugadores, ligas, partidos, técnicos y estadios.
+- `PATCH /api/matches/:id/events`
+- `POST /api/uploads/:category`
+- Gestión de videos: `/api/match-videos`
 
 ## Scripts
 
-### Backend
-| Comando | Descripcion |
+### Backend (`/backend`)
+
+| Script | Descripción |
 |---|---|
-| `npm run dev` | Servidor con hot-reload |
-| `npm start` | Servidor de produccion |
-| `npm run db:seed` | Cargar datos de prueba |
-| `npm run db:fix` | Corregir rutas de imagenes en BD |
+| `npm run dev` | Inicia backend con nodemon |
+| `npm start` | Inicia backend en modo producción |
+| `npm run db:seed` | Carga datos de prueba |
+| `npm run db:fix` | Ajusta datos existentes |
+| `npm run lint` | Ejecuta ESLint |
+| `npm run lint:fix` | Corrige problemas de ESLint |
+| `npm run format` | Formatea código con Prettier |
 
-### Frontend
-| Comando | Descripcion |
+### Frontend (`/frontend`)
+
+| Script | Descripción |
 |---|---|
-| `npm run dev` | Servidor de desarrollo |
-| `npm run build` | Build de produccion |
-| `npm run lint` | Verificar errores ESLint |
+| `npm run dev` | Inicia Vite en desarrollo (puerto 5173) |
+| `npm run build` | Genera build de producción |
+| `npm run preview` | Previsualiza build generado |
+| `npm run lint` | Ejecuta ESLint |
+| `npm run lint:fix` | Corrige problemas de ESLint |
+| `npm run format` | Formatea código con Prettier |
 
----
+## Estado y roadmap
 
-## Variables de entorno
+Estado actual: **en desarrollo activo**.
 
-Ver [`backend/.env.example`](backend/.env.example) para la lista completa.
-
-| Variable | Descripcion | Default |
-|---|---|---|
-| `PORT` | Puerto del servidor | `3001` |
-| `DB_NAME` | Nombre de la base de datos | — |
-| `DB_USER` | Usuario MySQL | `root` |
-| `DB_PASSWORD` | Contrasena MySQL | *(vacio)* |
-| `JWT_SECRET` | Clave secreta para tokens | — |
-| `CORS_ORIGIN` | Origen permitido | `http://localhost:5173` |
-
----
-
-## Estado del proyecto
-
-| Fase | Descripcion | Estado |
-|---|---|---|
-| 0 | Setup, arquitectura y design system | Completa |
-| 1 | Modelado de datos MySQL | Completa |
-| 2 | Autenticacion JWT y roles | Completa |
-| 3 | API REST — equipos, jugadores, ligas, partidos | Completa |
-| 4 | Panel administrativo | Completa |
-| 5 | Vistas publicas y perfiles | Completa |
-| 6 | Tiempo real con Socket.io | En progreso |
-| 7 | Estadisticas avanzadas y graficos | Pendiente |
-| 8 | Predicciones con IA | Pendiente |
-| 9 | Notificaciones push | Pendiente |
-| 10 | Deploy a produccion | Pendiente |
-
----
+- ✅ Base funcional full-stack (frontend + backend + MySQL).
+- ✅ Autenticación y control de roles.
+- ✅ Módulos principales de gestión deportiva.
+- 🟡 Tiempo real con Socket.io: implementado parcialmente y en evolución.
+- 🟡 Estadísticas avanzadas y visualizaciones: en expansión.
+- 🔜 Publicación de demo pública y despliegue productivo.
+- 🔜 Notificaciones y mejoras de experiencia en vivo.
 
 ## Licencia
 
-MIT
+Actualmente este repositorio **no incluye archivo `LICENSE`** en la raíz. Si deseas liberar el proyecto formalmente, se recomienda agregar una licencia (por ejemplo, MIT).
